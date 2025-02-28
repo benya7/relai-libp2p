@@ -11,6 +11,7 @@ import {
   circuitRelayServer,
   circuitRelayTransport,
 } from "@libp2p/circuit-relay-v2";
+import { identify, identifyPush } from "@libp2p/identify";
 import { ping } from "@libp2p/ping";
 import { webSockets } from "@libp2p/websockets";
 import { all } from "@libp2p/websockets/filters";
@@ -129,6 +130,16 @@ export const créerNœud = async () => {
     peerDiscovery,
     services: {
       ping: ping(),
+      identify: identify({
+        maxMessageSize: 1e6,
+        maxInboundStreams: 50,
+        maxOutboundStreams: 50,
+      }),
+      identifyPush: identifyPush({
+        maxMessageSize: 1e6,
+        maxInboundStreams: 50,
+        maxOutboundStreams: 50,
+      }),
       autoNAT: autoNAT(),
       dcutr: dcutr(),
       pubsub: gossipsub({
