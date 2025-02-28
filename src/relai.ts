@@ -11,7 +11,7 @@ import {
   circuitRelayServer,
   circuitRelayTransport,
 } from "@libp2p/circuit-relay-v2";
-import { identify } from "@libp2p/identify";
+import { ping } from "@libp2p/ping";
 import { webSockets } from "@libp2p/websockets";
 import { all } from "@libp2p/websockets/filters";
 import { webRTC, webRTCDirect } from "@libp2p/webrtc";
@@ -128,7 +128,7 @@ export const créerNœud = async () => {
     streamMuxers: [yamux()],
     peerDiscovery,
     services: {
-      identify: identify(),
+      ping: ping(),
       autoNAT: autoNAT(),
       dcutr: dcutr(),
       pubsub: gossipsub({

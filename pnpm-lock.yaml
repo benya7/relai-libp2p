@@ -44,6 +44,9 @@ importers:
       '@libp2p/peer-id':
         specifier: ^5.0.14
         version: 5.0.14
+      '@libp2p/ping':
+        specifier: ^2.0.23
+        version: 2.0.23
       '@libp2p/pubsub-peer-discovery':
         specifier: ^11.0.1
         version: 11.0.1
@@ -1071,6 +1074,9 @@ packages:
 
   '@libp2p/peer-store@11.0.21':
     resolution: {integrity: sha512-q9Pt4C8lQr0OE8mSbtsVsJ0q+8wrlag/Luh2sDQXbqX9xgpLBgW4rL9/G35c3ekzA0VAwyqsjRwJwwEekjvXLA==}
+
+  '@libp2p/ping@2.0.23':
+    resolution: {integrity: sha512-RbG3RIJTt25PyHC7W8HTicYhZsIRWO6UU1lCCfaIwxOHmnRpQ+SEYI8q+3PrygBX91RXoy4/TrWjiWlr2pLAnA==}
 
   '@libp2p/pubsub-peer-discovery@11.0.1':
     resolution: {integrity: sha512-bT7UO7tQ4mZCPFE0eS8Fx19B8MGzxjbTNR6SwcLGcOqOqUTvc2CLByMvcy3iMXuKjmds6G+VUf5ZMhvjGLTznA==}
@@ -5479,6 +5485,15 @@ snapshots:
       multiformats: 13.3.2
       protons-runtime: 5.5.0
       uint8arraylist: 2.4.8
+      uint8arrays: 5.1.0
+
+  '@libp2p/ping@2.0.23':
+    dependencies:
+      '@libp2p/crypto': 5.0.13
+      '@libp2p/interface': 2.6.1
+      '@libp2p/interface-internal': 2.3.5
+      '@multiformats/multiaddr': 12.4.0
+      it-byte-stream: 1.1.0
       uint8arrays: 5.1.0
 
   '@libp2p/pubsub-peer-discovery@11.0.1':
