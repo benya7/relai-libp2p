@@ -99,9 +99,6 @@ export const créerNœud = async () => {
     addresses: {
       listen: [
         "/ip4/0.0.0.0/tcp/12345/ws",
-        "/webrtc",
-        "/webtransport",
-        "/p2p-circuit",
       ],
       announce: domaine
         ? [
@@ -113,11 +110,7 @@ export const créerNœud = async () => {
     datastore: stockage,
     transports: [
       webSockets(),
-      webRTC(),
-      webRTCDirect(),
-      webTransport(),
       tcp(),
-      circuitRelayTransport(),
     ],
     transportManager: {
       faultTolerance: FaultTolerance.NO_FATAL,
