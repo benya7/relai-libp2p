@@ -137,7 +137,7 @@ export const créerNœud = async () => {
         // Dlo: 0,
         // Dhi: 0,
         // Dout: 0,
-        // doPX: true,
+        doPX: true,
         ignoreDuplicatePublishError: true,
         allowPublishToZeroTopicPeers: true,
         runOnLimitedConnection: true,
