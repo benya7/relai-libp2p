@@ -32,7 +32,6 @@ import {
 import fs from "fs";
 import { createPeerScoreParams } from "@chainsafe/libp2p-gossipsub/score";
 import { FsDatastore } from "datastore-fs";
-import { relayerPubsub } from "./utils.js";
 
 const bootstrapList = process.env.RELAY_BOOTSTRAP_LIST?.split(",");
 const pubsubPeerDiscoveryTopics =
@@ -165,10 +164,10 @@ export const créerNœud = async () => {
     },
   });
 
-  await relayerPubsub({
-    pubsub: nœud.services.pubsub as GossipSub,
-    toujoursRelayer: ["réseau-constellation"],
-  });
+  // await relayerPubsub({
+  //   pubsub: nœud.services.pubsub as GossipSub,
+  //   toujoursRelayer: ["réseau-constellation"],
+  // });
 
   nœud.services.pubsub.subscribe("réseau-constellation");
 
