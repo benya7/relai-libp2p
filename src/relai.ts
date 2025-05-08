@@ -9,17 +9,14 @@ import { noise } from "@chainsafe/libp2p-noise";
 import { yamux } from "@chainsafe/libp2p-yamux";
 import {
   circuitRelayServer,
-  circuitRelayTransport,
 } from "@libp2p/circuit-relay-v2";
 import { identify, identifyPush } from "@libp2p/identify";
 import { webSockets } from "@libp2p/websockets";
-import { webRTC, webRTCDirect } from "@libp2p/webrtc";
-import { webTransport } from "@libp2p/webtransport";
 import { bootstrap } from "@libp2p/bootstrap";
 import { pubsubPeerDiscovery } from "@libp2p/pubsub-peer-discovery";
 import { autoNAT } from "@libp2p/autonat";
 import { dcutr } from "@libp2p/dcutr";
-import { type GossipSub, gossipsub } from "@chainsafe/libp2p-gossipsub";
+import { gossipsub } from "@chainsafe/libp2p-gossipsub";
 import { tcp } from "@libp2p/tcp";
 import { ping } from "@libp2p/ping";
 import { keys } from "@libp2p/crypto";
@@ -97,13 +94,10 @@ export const créerNœud = async () => {
   const nœud = await createLibp2p({
     privateKey: clefPrivée,
     addresses: {
-      listen: [
-        "/ip4/0.0.0.0/tcp/12345/ws",
-      ],
+      listen: ["/ip4/0.0.0.0/tcp/12345/ws"],
       announce: domaine
         ? [
             `/dns4/${domaine}/tcp/443/wss/p2p/${peerId?.toString()}`,
-            `/dns4/${domaine}/tcp/80/ws/p2p/${peerId?.toString()}`,
           ]
         : undefined,
     },
