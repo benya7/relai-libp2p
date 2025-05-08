@@ -7,9 +7,7 @@ import {
 
 import { noise } from "@chainsafe/libp2p-noise";
 import { yamux } from "@chainsafe/libp2p-yamux";
-import {
-  circuitRelayServer,
-} from "@libp2p/circuit-relay-v2";
+import { circuitRelayServer } from "@libp2p/circuit-relay-v2";
 import { identify, identifyPush } from "@libp2p/identify";
 import { webSockets } from "@libp2p/websockets";
 import { bootstrap } from "@libp2p/bootstrap";
@@ -96,16 +94,11 @@ export const créerNœud = async () => {
     addresses: {
       listen: ["/ip4/0.0.0.0/tcp/12345/ws"],
       announce: domaine
-        ? [
-            `/dns4/${domaine}/tcp/443/wss/p2p/${peerId?.toString()}`,
-          ]
+        ? [`/dns4/${domaine}/tcp/443/wss/p2p/${peerId?.toString()}`]
         : undefined,
     },
     datastore: stockage,
-    transports: [
-      webSockets(),
-      tcp(),
-    ],
+    transports: [webSockets(), tcp()],
     transportManager: {
       faultTolerance: FaultTolerance.NO_FATAL,
     },
